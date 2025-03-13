@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Хоккей vs Футбол</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-    <h1>Добро пожаловать на сайт "Хоккей vs Футбол"</h1>
-    <nav>
-        <a href="/hockey">Хоккей</a> | <a href="/football">Футбол</a> | <a href="/compare">Сравнение</a>
-    </nav>
-    <p>Здесь будет информация о хоккее и футболе!</p>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<h1>Добро пожаловать на сайт "Хоккей vs Футбол"</h1>
+<p>На этом сайте ты найдёшь информацию об истории, правилах и знаменитых спортсменах двух самых популярных видов спорта.</p>
+{% endblock %}
