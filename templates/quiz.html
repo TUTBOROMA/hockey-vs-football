@@ -2,16 +2,26 @@
 {% block content %}
 <h1>Викторина: Хоккей vs Футбол</h1>
 <form id="quiz-form" action="{{ url_for('submit_quiz') }}" method="post">
-    <p>Вопрос 1: Какой вид спорта популярен на зимних аренах?</p>
+    <p><strong>Введите ваше имя:</strong></p>
+    <input type="text" name="username" placeholder="Ваше имя" required>
+    
+    <hr>
+    
+    <p><strong>Вопрос 1:</strong> Какой вид спорта традиционно играют на замерзших озёрах?</p>
     <label><input type="radio" name="q1" value="hockey" required> Хоккей</label><br>
     <label><input type="radio" name="q1" value="football"> Футбол</label><br>
-
-    <p>Вопрос 2: Сколько игроков одновременно на поле в хоккее?</p>
-    <label><input type="radio" name="q2" value="6" required> 6</label><br>
-    <label><input type="radio" name="q2" value="11"> 11</label><br>
-
-    <!-- Добавьте больше вопросов по необходимости -->
-
+    
+    <p><strong>Вопрос 2:</strong> Сколько игроков одновременно находятся на поле у футбольной команды?</p>
+    <label><input type="radio" name="q2" value="11" required> 11</label><br>
+    <label><input type="radio" name="q2" value="6"> 6</label><br>
+    
+    <p><strong>Вопрос 3:</strong> Сколько игроков одновременно на льду у хоккейной команды (включая вратаря)?</p>
+    <label><input type="radio" name="q3" value="6" required> 6</label><br>
+    <label><input type="radio" name="q3" value="11"> 11</label><br>
+    
+    <!-- Добавьте больше вопросов, если хотите -->
+    
+    <!-- Скрытый input для передачи всех ответов в виде JSON -->
     <input type="hidden" name="quiz_data" id="quiz_data">
     <button type="button" onclick="submitQuiz()">Отправить ответы</button>
 </form>
