@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Результаты викторины</h1>
+{% if results %}
+    <ul>
+    {% for result in results %}
+        <li>
+            <strong>{{ result.timestamp }}:</strong>
+            <pre>{{ result.data | tojson(indent=2) }}</pre>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Пока нет результатов викторины.</p>
+{% endif %}
+{% endblock %}

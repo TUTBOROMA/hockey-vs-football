@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Викторина: Хоккей vs Футбол</h1>
+<form id="quiz-form" action="{{ url_for('submit_quiz') }}" method="post">
+    <p>Вопрос 1: Какой вид спорта популярен на зимних аренах?</p>
+    <label><input type="radio" name="q1" value="hockey" required> Хоккей</label><br>
+    <label><input type="radio" name="q1" value="football"> Футбол</label><br>
+
+    <p>Вопрос 2: Сколько игроков одновременно на поле в хоккее?</p>
+    <label><input type="radio" name="q2" value="6" required> 6</label><br>
+    <label><input type="radio" name="q2" value="11"> 11</label><br>
+
+    <!-- Добавьте больше вопросов по необходимости -->
+
+    <input type="hidden" name="quiz_data" id="quiz_data">
+    <button type="button" onclick="submitQuiz()">Отправить ответы</button>
+</form>
+{% endblock %}

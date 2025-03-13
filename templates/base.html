@@ -4,25 +4,40 @@
     <meta charset="UTF-8">
     <title>{{ title }} - Хоккей vs Футбол</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <header>
-        <img src="{{ url_for('static', filename='images/banner.jpg') }}" alt="Баннер" class="banner">
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('home') }}">Главная</a></li>
-                <li><a href="{{ url_for('hockey') }}">Хоккей</a></li>
-                <li><a href="{{ url_for('football') }}">Футбол</a></li>
-                <li><a href="{{ url_for('compare') }}">Сравнение</a></li>
-            </ul>
-        </nav>
+        <div class="header-container">
+            <img src="{{ url_for('static', filename='images/banner.jpg') }}" alt="Баннер" class="banner">
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Главная</a></li>
+                    <li><a href="{{ url_for('hockey') }}">Хоккей</a></li>
+                    <li><a href="{{ url_for('football') }}">Футбол</a></li>
+                    <li><a href="{{ url_for('compare') }}">Сравнение</a></li>
+                    <li><a href="{{ url_for('quiz') }}">Викторина</a></li>
+                    <li><a href="{{ url_for('results') }}">Результаты</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+              <li class="flash-{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
         {% block content %}{% endblock %}
     </main>
     <footer>
         <p>&copy; {{ now.year }} Продан Илья Олегович, Школа 292, Купчино, Санкт-Петербург</p>
     </footer>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
 </body>
 </html>
